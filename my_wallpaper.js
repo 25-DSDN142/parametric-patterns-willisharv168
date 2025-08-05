@@ -6,19 +6,25 @@ let heady=55;
 let angle=22;
 let armLX=55;
 let armLY=100;
-let eyesize=6
-let stomachsize=80
-let expression=2
+let eyesize=15
+let stomachsize=100
+var expression=13
 var Shift = 40
 var shiftY =-15
-let GorillaMad=false
+var bananaX = -35
+var bananaY= 35
+let gorillaamount=0
+let BB1= true
+let BB2= false
+let gorillaangry=false
+let justbananas=true
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  //pWallpaper.output_mode(GRID_WALLPAPER);
+  //pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
   
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  //pWallpaper.show_guide(true); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
@@ -31,19 +37,129 @@ function wallpaper_background() {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-
-
-//gorillaposeA()
-scale (0.5)
-gorillaposeB()
-
-push()
-translate(190,160)
+if(justbananas==true){
+  push()
+scale(-1,1)
+translate(-132,30)
+bananabunchbrown()
+pop()
 gorillaposeA()
+  
+  push()
+translate(65,-65)
+bananabunchbrown()
+pop()}
+  if(gorillaangry==true){
+  push()
+  gorillaposeB()
+  pop()
+}
+if(gorillaamount==4){
+scale(0.5)
+push()
+translate(200,0)
+scale(-1,1)
+gorillaposeB()
+pop()
+push()
+translate(190,0)
+gorillaposeB()
+pop()
+push()
+translate(200,185)
+scale(-1,1)
+gorillaposeB()
+pop()
+push()
+translate(190,185)
+gorillaposeB()
+pop()
+}
+if(gorillaamount==3){
+if(BB1==true){
+push()
+translate(65,-65)
+bananabunchbrown()
+pop()
+
+scale(0.5)
+push()
+translate(40,0)
+gorillaposeA()
+pop()
+push()
+translate(190,185)
+gorillaposeB()
+pop()
+push()
+translate(200,185)
+scale(-1,1)
+gorillaposeB()
+pop()}
+else{
+push()
+translate(65,-65)
+bananabunchyellow()
+pop()
+
+scale(0.5)
+push()
+scale(-1,1)
+translate(-185,0)
+gorillaposeA()
+pop()
+push()
+translate(190,185)
+gorillaposeB()
+pop()
+push()
+translate(200,185)
+scale(-1,1)
+gorillaposeB()
+pop()}}
+
+if(gorillaamount==2){
+if(BB1==true){
+push()
+translate(65,-65)
+bananabunchbrown()
 pop()
 
 
+push()
+scale(0.5)
+translate(40,0)
+gorillaposeA()
+pop()}
+else{
+  push()
+translate(65,-65)
+bananabunchyellow()
+pop()
 
+push()
+scale(0.5)
+scale(-1,1)
+translate(-185,0)
+gorillaposeA()
+pop()}
+
+if(BB2==true){
+  //turning bananas brown
+push()
+scale(-1,1)
+translate(-132,30)
+bananabunchbrown()
+pop()
+
+push()
+scale(0.5)
+scale(-1,1)
+translate(-370,170)
+gorillaposeA()
+pop()}}
+//gorillas dont like brown bananas.
+//the else intended for here didnt work and I ran out of time
 }
 
 
@@ -290,9 +406,85 @@ rect(115,173,23,12)
 
 }
 
+function bananabunchyellow(){
+//yellowbananabunch
+bananayellow()
+push()
+translate(-15,20)
+rotate(350)
+bananayellow()
+pop()
+push()
+translate(-30,50)
+rotate(335)
+bananayellow()
+pop()
+}
+
+//brownbananabunch
+function bananabunchbrown(){
+bananabrown()
+push()
+translate(-15,20)
+rotate(350)
+bananabrown()
+pop()
+push()
+translate(-30,50)
+rotate(335)
+bananabrown()
+pop()
+}
+
+//individualyellow banana
+function bananayellow(){
+
+fill(255,255,0);
+stroke(255,255,0);
+curve (40,20,90,100,70,133,10,140)
+push()
+translate(-29,4)
+rotate(340)
+ellipse(50,150,25,10)
+pop ()
+push()
+translate(-65,55)
+rotate(310)
+ellipse(50,150,30,6)
+pop ()
+
+push()
+fill(95,42,42)
+stroke(95,42,42)
+translate(8,-20)
+rotate(10)
+rect(100,100,4,8)
+pop()}
+//brown banana
+function bananabrown(){
+
+fill(61, 38, 4);
+stroke(61, 38, 4);
+curve (40,20,90,100,70,133,10,140)
+push()
+translate(-29,4)
+rotate(340)
+ellipse(50,150,25,10)
+pop ()
+push()
+translate(-65,55)
+rotate(310)
+ellipse(50,150,30,6)
+pop ()
+
+push()
+fill(33, 22, 5)
+stroke(33, 22, 5)
+translate(8,-20)
+rotate(10)
+rect(100,100,4,8)
+pop()
 
 
-
-
-
+}
 
